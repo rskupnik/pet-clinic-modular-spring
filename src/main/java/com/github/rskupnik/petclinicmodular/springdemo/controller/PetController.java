@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RestController("/pet")
+@RestController("/pets")
 public class PetController {
 
     private final PetService petService;
