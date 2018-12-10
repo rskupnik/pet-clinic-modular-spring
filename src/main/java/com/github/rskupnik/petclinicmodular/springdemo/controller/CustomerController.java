@@ -1,14 +1,19 @@
 package com.github.rskupnik.petclinicmodular.springdemo.controller;
 
-import com.github.rskupnik.petclinicmodular.service.CustomerService;
+import com.github.rskupnik.petclinicmodular.application.customer.service.api.CustomerService;
 import com.github.rskupnik.petclinicmodular.springdemo.dto.CustomerDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RestController("/customers")
+@RestController
+@RequestMapping("/customers")
 public class CustomerController {
 
     private final CustomerService customerService;

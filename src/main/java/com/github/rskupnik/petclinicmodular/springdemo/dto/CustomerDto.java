@@ -1,6 +1,6 @@
 package com.github.rskupnik.petclinicmodular.springdemo.dto;
 
-import com.github.rskupnik.petclinicmodular.customer.domain.Customer;
+import com.github.rskupnik.petclinicmodular.domain.customer.Customer;
 
 public class CustomerDto {
 

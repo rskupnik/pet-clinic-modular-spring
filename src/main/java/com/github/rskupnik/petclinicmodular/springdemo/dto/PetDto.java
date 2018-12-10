@@ -1,6 +1,6 @@
 package com.github.rskupnik.petclinicmodular.springdemo.dto;
 
-import com.github.rskupnik.petclinicmodular.pet.domain.Pet;
+import com.github.rskupnik.petclinicmodular.domain.pet.Pet;
 
 public class PetDto {
 

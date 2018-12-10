@@ -1,13 +1,9 @@
 package com.github.rskupnik.petclinicmodular.springdemo.config;
 
-import com.github.rskupnik.petclinicmodular.customer.repository.CustomerRepository;
-import com.github.rskupnik.petclinicmodular.customer.repository.defaultimpl.DefaultCustomerRepository;
-import com.github.rskupnik.petclinicmodular.pet.repository.PetRepository;
-import com.github.rskupnik.petclinicmodular.pet.repository.defaultimpl.DefaultPetRepository;
-import com.github.rskupnik.petclinicmodular.service.CustomerService;
-import com.github.rskupnik.petclinicmodular.service.PetService;
-import com.github.rskupnik.petclinicmodular.service.defaultimpl.DefaultCustomerService;
-import com.github.rskupnik.petclinicmodular.service.defaultimpl.DefaultPetService;
+import com.github.rskupnik.petclinicmodular.application.customer.repository.api.CustomerRepository;
+import com.github.rskupnik.petclinicmodular.application.customer.service.api.CustomerService;
+import com.github.rskupnik.petclinicmodular.application.pet.repository.api.PetRepository;
+import com.github.rskupnik.petclinicmodular.application.pet.service.api.PetService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,21 +12,21 @@ public class DefaultImplementationConfig {
 
     @Bean
     public PetRepository petRepository() {
-        return new DefaultPetRepository();
+        return PetRepository.defaultRepository();
     }
 
     @Bean
     public PetService petService(PetRepository petRepository) {
-        return new DefaultPetService(petRepository);
+        return PetService.defaultService(petRepository);
     }
 
     @Bean
     public CustomerRepository customerRepository() {
-        return new DefaultCustomerRepository();
+        return CustomerRepository.defaultRepository();
     }
 
     @Bean
     public CustomerService customerService(CustomerRepository customerRepository) {
-        return new DefaultCustomerService(customerRepository);
+        return CustomerService.defaultService(customerRepository);
     }
 }
