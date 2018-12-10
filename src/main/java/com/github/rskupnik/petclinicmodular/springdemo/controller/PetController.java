@@ -27,9 +27,4 @@ public class PetController {
     public List<PetDto> getAll() {
         return petService.getAll().stream().map(PetDto::fromDomain).collect(Collectors.toList());
     }
-
-    @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public void add(@RequestBody PetDto pet) {
-        petService.add(pet.toDomain());
-    }
 }
