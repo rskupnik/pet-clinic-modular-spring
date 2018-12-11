@@ -4,6 +4,8 @@ import com.github.rskupnik.petclinicmodular.application.customer.repository.api.
 import com.github.rskupnik.petclinicmodular.application.customer.service.api.CustomerService;
 import com.github.rskupnik.petclinicmodular.application.pet.repository.api.PetRepository;
 import com.github.rskupnik.petclinicmodular.application.pet.service.api.PetService;
+import com.github.rskupnik.petclinicmodular.springdemo.repository.CustomerRepositoryJPA;
+import com.github.rskupnik.petclinicmodular.springdemo.repository.adapter.CustomerRepositoryAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,8 +23,8 @@ public class ImplementationConfig {
     }
 
     @Bean
-    public CustomerRepository customerRepository() {
-        return CustomerRepository.defaultRepository();
+    public CustomerRepository customerRepository(CustomerRepositoryJPA jpaRepo) {
+        return new CustomerRepositoryAdapter(jpaRepo);
     }
 
     @Bean

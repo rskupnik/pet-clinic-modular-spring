@@ -11,11 +11,27 @@
                 <generated-value strategy="AUTO"/>
             </id>
             <basic name="firstName">
-                <column name="text" length="200"/>
+                <column name="firstName" length="200"/>
             </basic>
             <basic name="lastName">
-                <column name="text" length="200"/>
+                <column name="lastName" length="200"/>
             </basic>
+            <one-to-many name="pets" mapped-by="owner" fetch="EAGER">
+                <cascade><cascade-all/></cascade>
+            </one-to-many>
+        </attributes>
+    </entity>
+
+    <entity class="com.github.rskupnik.petclinicmodular.domain.pet.Pet" access="FIELD">
+        <table name="pets"/>
+        <attributes>
+            <id name="id">
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column name="name" length="200"/>
+            </basic>
+            <many-to-one name="owner" target-entity="com.github.rskupnik.petclinicmodular.domain.customer.Customer"/>
         </attributes>
     </entity>
 
