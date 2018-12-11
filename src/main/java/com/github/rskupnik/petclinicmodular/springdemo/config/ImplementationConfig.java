@@ -26,7 +26,7 @@ public class ImplementationConfig {
     }
 
     @Bean
-    public CustomerService customerService(CustomerRepository customerRepository) {
-        return CustomerService.defaultService(customerRepository);
+    public CustomerService customerService(CustomerRepository customerRepository, PetService petService) {
+        return CustomerService.defaultService(customerRepository, petService);
     }
 }
