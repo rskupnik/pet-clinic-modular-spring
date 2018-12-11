@@ -16,7 +16,8 @@
             <basic name="lastName">
                 <column name="lastName" length="200"/>
             </basic>
-            <one-to-many name="pets" mapped-by="owner" fetch="EAGER">
+            <one-to-many name="pets" fetch="EAGER">
+                <join-column name="owner"/>
                 <cascade><cascade-all/></cascade>
             </one-to-many>
         </attributes>
@@ -31,7 +32,10 @@
             <basic name="name">
                 <column name="name" length="200"/>
             </basic>
-            <many-to-one name="owner" target-entity="com.github.rskupnik.petclinicmodular.domain.customer.Customer"/>
+            <many-to-one name="owner">
+                <join-column name="owner"/>
+                <cascade><cascade-all/></cascade>
+            </many-to-one>
         </attributes>
     </entity>
 
